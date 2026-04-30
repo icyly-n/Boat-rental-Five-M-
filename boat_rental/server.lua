@@ -19,7 +19,7 @@ RegisterNetEvent("boat:rentBoat", function(model)
 
     if not Player then return end
 
-    -- ✅ منع تعدد الإيجارات
+  
     if activeRentals[src] then
         TriggerClientEvent('QBCore:Notify', src, "عندك قارب مؤجر بالفعل!", "error")
         return
@@ -34,12 +34,12 @@ RegisterNetEvent("boat:rentBoat", function(model)
     local time  = boats[model].time
 
     if Player.Functions.RemoveMoney("cash", price) then
-        -- ✅ تسجيل الإيجار في السيرفر
+     
         activeRentals[src] = {
             model     = model,
             price     = price,
             startTime = os.time(),
-            duration  = time * 60, -- بالثواني
+            duration  = time * 60, 
         }
 
         TriggerClientEvent("boat:spawnRentedBoat", src, model, time)
