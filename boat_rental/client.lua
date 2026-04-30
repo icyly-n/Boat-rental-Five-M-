@@ -35,7 +35,6 @@ CreateThread(function()
     FreezeEntityPosition(ped, true)
     SetBlockingOfNonTemporaryEvents(ped, true)
 
-    -- 🎭 أنيميشن للـ NPC
     RequestAnimDict("amb@world_human_clipboard@male@base")
     while not HasAnimDictLoaded("amb@world_human_clipboard@male@base") do Wait(10) end
     TaskPlayAnim(ped, "amb@world_human_clipboard@male@base", "base", 8.0, -8.0, -1, 1, 0, false, false, false)
@@ -97,7 +96,7 @@ RegisterNetEvent("boat:spawnRentedBoat", function(model, time)
     rentStartTime = GetGameTimer()
     rentDuration = time * 60000
 
-    -- 🎯 Target لإرجاع القارب
+
     exports['qb-target']:AddTargetEntity(boat, {
         options = {
             {
